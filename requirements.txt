@@ -1,1 +1,1 @@
-pygame
+install pygame
