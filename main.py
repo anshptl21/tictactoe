@@ -3,7 +3,7 @@ import sys
 import time
 import math
 import tictactoe as ttt
-
+import asyncio
 pygame.init()
 size = width, height = 600, 400
 
@@ -20,9 +20,7 @@ moveFont = pygame.font.Font("OpenSans-Regular.ttf", 60)
 user = None
 board = ttt.initial_state()
 ai_turn = False
-
-while True:
-
+async def main():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -150,5 +148,7 @@ while True:
                     user = None
                     board = ttt.initial_state()
                     ai_turn = False
-
+    await asyncio.sleep(0)
     pygame.display.flip()
+asyncio.run(main())
+
